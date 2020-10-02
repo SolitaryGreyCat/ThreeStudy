@@ -1,0 +1,26 @@
+﻿@page
+@model UI.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<form method="post" >
+    <div>
+        <label>用户名：</label><input asp-for="Register.UserName">
+        <span asp-validation-for="Register.UserName"></span>
+    </div>
+    <div>
+        <label>密码：</label><input asp-for="Register.PassWord" />
+        <span asp-validation-for="Register.PassWord"></span><br />
+    </div>
+    <div>
+        <lable>确认密码：</lable><input asp-for="Register.ConfirmPassword" />
+        <span asp-validation-for="Register.ConfirmPassword"></span>
+    </div>
+    @*<div>
+            <lable>验证码：</lable><input asp-for="Register.Captcha" />
+            <span asp-validation-for="Register.Captcha"></span>
+        </div>*@
+    <div>
+        <button type="submit">提交</button>
+    </div>
+    </form>

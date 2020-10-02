@@ -1,0 +1,20 @@
+﻿@page
+@model UI.Pages.Email.ValidateModel
+@if (ViewData["valid"] !=null)
+{
+    if ((bool) ViewData["valid"])
+    {
+        <span>激活成功</span>
+    }
+    else
+    {
+        <span>激活失败</span>
+    }
+}
+
+<form method="post">
+   <label> Email:</label> <input asp-for="EmailAddress" /><br />
+    <span asp-validation-for="EmailAddress"></span>
+    <button type ="submit">提交</button>
+</form>
+

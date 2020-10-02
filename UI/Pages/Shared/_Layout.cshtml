@@ -1,0 +1,49 @@
+﻿@model _LayoutModel
+@using Microsoft.AspNetCore.Http;
+@using SRV.Model;
+@using Newtonsoft.Json;
+@{
+    string jsonUser = Context.Session.GetString("UserName");
+    UserModel user = null;
+    if (!string.IsNullOrEmpty(jsonUser))
+    {
+        user = JsonConvert.DeserializeObject<UserModel>(jsonUser);
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UI</title>
+
+
+</head>
+<body>
+
+    <header>
+        @if (user == null)
+        {
+            <a href="/Log/On">登录</a>
+        }
+        else
+        {
+
+            <span>欢迎你，@user.Name</span>
+        }
+    </header>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2020 - UI</p>
+        </footer>
+    </div>
+
+
+
+
+</body>
+</html>
