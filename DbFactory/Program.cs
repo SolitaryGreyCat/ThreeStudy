@@ -12,7 +12,8 @@ namespace DbFactory
             //Console.WriteLine("Hello World!");
             DatabaseFacade db = new SQLContext().Database;
             //db.EnsureDeleted();
-            db.Migrate();
+            db.EnsureCreated();
+            //db.Migrate();
             RegisterFactory.Create();
 
 

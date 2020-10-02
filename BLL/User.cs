@@ -10,6 +10,7 @@ namespace BLL
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+        public Email Email { get; set; }
         public void Register()
         {
             //注册成功，返回信息；

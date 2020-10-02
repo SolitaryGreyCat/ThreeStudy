@@ -45,7 +45,7 @@ namespace SRV
                 return model;
             }
         }
-
+        
         public void SendValidationEmail(string emailAddress, string validationUrlFormat)
         {
             Email email = new Email { Address = emailAddress };
