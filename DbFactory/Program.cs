@@ -13,8 +13,8 @@ namespace DbFactory
             DatabaseFacade db = new SQLContext().Database;
             //db.EnsureDeleted();
             db.EnsureCreated();
-            //db.Migrate();
             RegisterFactory.Create();
+            Console.WriteLine();
 
 
         }
