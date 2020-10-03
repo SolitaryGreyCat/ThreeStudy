@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using SRV;
 using SRV.Model;
 
@@ -37,6 +38,17 @@ namespace UI.Pages
             //}
         }
        
-
+        public int? CurrentUserId
+        {
+            get
+            {
+                string UserOfSession = HttpContext.Session.GetString("UserName");
+                if (string.IsNullOrEmpty(UserOfSession))
+                {
+                    return null;
+                }
+                return JsonConvert.DeserializeObject<UserModel>(UserOfSession).Id;
+            }
+        }
     }
 }

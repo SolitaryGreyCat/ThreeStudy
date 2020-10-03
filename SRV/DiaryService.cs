@@ -13,13 +13,18 @@ namespace SRV
         {
             _diaryRepository = new DiaryRepository();
         }
-        public void Publish(string title, string body)
+        public Diary Publish(string title, string body, int diaryId)
         {
-            Diary diary = new Diary();
-            diary.Title = title;
-            diary.body = body;
-            _diaryRepository.Save(diary);
-            
+            Diary diary = new Diary
+            {
+                Author = new UserRepository().GetById(diaryId),
+                Title = title,
+                Body = body
+            };
+            diary.Publish();
+           return _diaryRepository.Save(diary);
+
+
         }
     }
 }

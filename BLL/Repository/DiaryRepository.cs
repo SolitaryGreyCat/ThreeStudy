@@ -4,18 +4,14 @@ using System.Text;
 
 namespace BLL.Repository
 {
-    public class DiaryRepository
+    public class DiaryRepository : Repository
     {
-        private SQLContext _sqlContext;
-        public DiaryRepository()
+             
+        public Diary Save(Diary diary)
         {
-            _sqlContext = new SQLContext();
-        }
-        
-        public void Save(Diary diary)
-        {
-            _sqlContext.Add(diary);
-            _sqlContext.SaveChanges();
+            PresentContext.Add(diary);
+           PresentContext.SaveChanges();
+            return diary;
         }
     }
 }

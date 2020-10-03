@@ -6,11 +6,15 @@ namespace BLL
 {
    public class Diary
     {
-        public int Diaryid { get; set; }
+        public int Id { get; set; }
+        public User Author { get; set; }
         public string Title { get; set; }
-        public string body { get; set; }
+        public string Body { get; set; }
         public DateTime PublishTime { get; set; }
-        public User user { get; set; }
-       
+
+        public void Publish()
+        {
+            PublishTime = DateTime.Now;
+        }
     }
 }

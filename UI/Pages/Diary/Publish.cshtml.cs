@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using SRV;
+using SRV.Model;
 
 namespace UI.Pages.Diary
 {
@@ -28,16 +31,21 @@ namespace UI.Pages.Diary
             {
                 return;
             }
-            _diaryService.Publish(Diary.Title, Diary.Body);
+           
+            UserModel CurrentUser = JsonConvert.DeserializeObject<UserModel>(
+                HttpContext.Session.GetString("UserName")
+            );
+            _diaryService.Publish(Diary.Title, Diary.Body,CurrentUser.Id);
         }
 
         
     }
     public class Diary
     {
-        public String Title { get; set; }
-        [DataType(DataType.Text)]
-        public String Body { get; set; }
+        [Required]
+        public string Title { get; set; }
+        [Required]
+        public string Body { get; set; }
 
 
     }

@@ -17,10 +17,14 @@ namespace BLL.Repository
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>((optios) => { optios.ToTable("Users")
-                .Property(x => x.Name)
-                .IsRequired();
-            });
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Name)
+                .IsUnique();
+
+            //modelBuilder.Entity<User>((optios) => { optios.ToTable("Users")
+            //    .Property(x => x.Name)
+            //    .IsRequired();
+            //});
         }
     }
   

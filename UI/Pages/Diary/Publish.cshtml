@@ -1,17 +1,16 @@
 ﻿@page
 @model UI.Pages.Diary.PublishModel
 @{
-    ViewData["Title"] = "标题";
+    ViewData["Title"] = "发布";
 }
 <span>文章发布</span>
 <form method="post">
-    <div>
-        <label>标题：</label><input asp-for="Diary.Title" />
-    </div>
-    <div>
-        <label>主题：</label><input asp-for="Diary.Body" />
-    </div>
-    <button type ="submit">提交</button>
+
+    <label>标题:</label><input asp-for="Diary.Title" /><br />
+    <span asp-validation-for="Diary.Title"></span>
+    <label>主题：</label><textarea asp-for="Diary.Body" ></textarea><br />
+    <span asp-validation-for="Diary.Body"></span>
+    <button type="submit">提交</button>
 
 </form>
 
