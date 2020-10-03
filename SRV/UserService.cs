@@ -8,9 +8,12 @@ namespace SRV
     public class UserService
     {
         private UserRepository _userRepostory;
+        private EmaiRepository _emaiRepository;
+
         public UserService()
         {
             _userRepostory = new UserRepository();
+            _emaiRepository = new EmaiRepository();
         }
         public void Register(string username, string password)
         {
@@ -49,7 +52,7 @@ namespace SRV
         public void SendValidationEmail(string emailAddress, string validationUrlFormat)
         {
             Email email = new Email { Address = emailAddress };
-            _userRepostory.Save(email);
+            _emaiRepository.Save(email);
             string validationUrl = string.Format(validationUrlFormat, email.Id, email.ValidationCode);
         }
 

@@ -20,7 +20,7 @@ namespace SRV
                 Author = new UserRepository().GetById(diaryId),
                 Title = title,
                 Body = body
-            };
+            }; 
             diary.Publish();
            return _diaryRepository.Save(diary);
 
