@@ -10,9 +10,9 @@ namespace DbFactory
         static void Main(string[] args)
         {
             //Console.WriteLine("Hello World!");
-            //DatabaseFacade db = new SQLContext().Database;
+            DatabaseFacade db = new SQLContext().Database;
             //db.EnsureDeleted();
-            //db.EnsureCreated();
+            db.EnsureCreated();
             RegisterFactory.Create();
             Console.WriteLine();
 

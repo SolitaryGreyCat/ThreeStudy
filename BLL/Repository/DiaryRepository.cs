@@ -7,7 +7,7 @@ namespace BLL.Repository
 {
     public class DiaryRepository : Repository<Diary>
     {
-        public DbSet<Diary> diaries { get; set; }
+        
 
     }
 }

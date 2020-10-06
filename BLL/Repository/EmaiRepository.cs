@@ -5,8 +5,8 @@ using System.Text;
 
 namespace BLL.Repository
 {
-   public class EmaiRepository:Repository<Email>
+    public class EmaiRepository : Repository<Email>
     {
-        public DbSet<Email> Emails { get; set; }
+      
     }
 }

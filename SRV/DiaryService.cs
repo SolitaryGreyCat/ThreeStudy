@@ -15,6 +15,8 @@ namespace SRV
         }
         public Diary Publish(string title, string body, int diaryId)
         {
+            UserRepository userRepository = new UserRepository();
+            userRepository.SedEntity(_diaryRepository.PresentContext);
             Diary diary = new Diary
             {
                 Author = new UserRepository().GetById(diaryId),

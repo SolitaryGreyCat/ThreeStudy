@@ -9,7 +9,10 @@ namespace BLL.Repository
    public class SQLContext : DbContext 
     {
 
+        public SQLContext()
+        {
 
+        }
       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

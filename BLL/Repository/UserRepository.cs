@@ -7,8 +7,8 @@ using System.Text;
 namespace BLL.Repository
 {
     public class UserRepository : Repository<User>
-    {
-        public DbSet<User> Emails { get; set; }
+    { 
+      
 
 
         public User GetByName(string userName)

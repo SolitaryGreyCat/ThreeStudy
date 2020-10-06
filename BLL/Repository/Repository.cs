@@ -15,6 +15,11 @@ namespace BLL.Repository
             entities = PresentContext.Set<T>();
             
         }
+        public void SedEntity(SQLContext context)
+        {
+            PresentContext = context;
+            entities = PresentContext.Set<T>();
+        }
         public T Save(T enyity)
         {
            entities.Add(enyity);

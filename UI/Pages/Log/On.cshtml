@@ -1,0 +1,16 @@
+﻿@page
+@model UI.Pages.Log.OnModel
+@{
+    ViewData["Title"] = "On";
+}
+
+<form method="post">
+    <label>用户名:</label><input asp-for="UserName" /><br />
+    <span asp-validation-for="UserName"></span>
+    <label>密码：</label><input asp-for="Password" /><br />
+    <span asp-validation-for="Password"></span>
+    <button type ="submit">提交</button>
+
+
+</form>
+
